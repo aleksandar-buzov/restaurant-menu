@@ -1,5 +1,5 @@
-const MenuPages = () => {
-  return <h1>Hello MenuPages</h1>
+const MenuPage = () => {
+  return <h1>Hello MenuPage</h1>
 }
 
-export default MenuPages
+export default MenuPage
