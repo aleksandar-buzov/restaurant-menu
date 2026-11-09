@@ -1,10 +1,9 @@
-const formatPrice = (priceCents: number): string => {
-  const price = Intl.NumberFormat("bg-BG", {
-    style: "currency",
-    currency: "EUR",
-  }).format(priceCents / 100)
+const priceFormatter = new Intl.NumberFormat("bg-BG", {
+  style: "currency",
+  currency: "EUR",
+})
 
-  return price
-}
+const formatPrice = (priceCents: number): string =>
+  priceFormatter.format(priceCents / 100)
 
 export default formatPrice
