@@ -1,3 +1,4 @@
+import Toggle from "@/components/ui/Toggle"
 import type { MenuFilterState } from "@/features/menu/types"
 
 interface MenuFiltersProps {
@@ -28,15 +29,13 @@ const MenuFilters = ({
         <span className="text-sm text-stone-600">Филтри:</span>
 
         {FILTER_OPTIONS.map(({ key, label }) => (
-          <button
+          <Toggle
             key={key}
-            type="button"
-            aria-pressed={filters[key]}
+            pressed={filters[key]}
             onClick={() => onToggle(key)}
-            className="cursor-pointer rounded-lg border border-dashed border-stone-400 px-3 py-1.5 text-sm font-medium text-stone-700 transition-colors hover:bg-stone-200 focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2 focus-visible:outline-none aria-pressed:border-solid aria-pressed:border-emerald-700 aria-pressed:bg-emerald-700 aria-pressed:text-white aria-pressed:hover:bg-emerald-800"
           >
             {label}
-          </button>
+          </Toggle>
         ))}
 
         {hasActiveFilters && (
