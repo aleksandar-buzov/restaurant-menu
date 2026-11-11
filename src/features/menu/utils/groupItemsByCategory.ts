@@ -5,10 +5,6 @@ export interface CategoryGroup {
   items: MenuItem[]
 }
 
-/**
- * Подрежда категориите по `position`, слага към всяка нейните ястия
- * и маха категориите без ястия.
- */
 const groupItemsByCategory = (
   categories: Category[],
   items: MenuItem[],
