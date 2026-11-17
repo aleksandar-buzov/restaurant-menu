@@ -1,4 +1,9 @@
-const MenuHeader = () => {
+interface MenuHeaderProps {
+  onSearchChange: (inputValue: string) => void
+  searchField: string
+}
+
+const MenuHeader = ({ onSearchChange, searchField }: MenuHeaderProps) => {
   return (
     <header className="bg-emerald-900 text-stone-50">
       <div className="mx-auto flex max-w-6xl flex-col gap-1 px-5 py-6 lg:px-6 lg:py-10">
@@ -11,6 +16,19 @@ const MenuHeader = () => {
         <p className="text-sm text-emerald-100 lg:text-base">
           Сезонна кухня · цени в евро
         </p>
+        <div className="mt-4 flex h-12 max-w-xl items-center gap-2 rounded-xl bg-white px-4 text-stone-900 focus-within:ring-2 focus-within:ring-emerald-200">
+          <label htmlFor="menu-search" className="sr-only">
+            Търси ястие
+          </label>
+          <input
+            id="menu-search"
+            onChange={(e) => onSearchChange(e.target.value)}
+            value={searchField}
+            type="search"
+            placeholder="Търси ястие…"
+            className="flex-1 bg-transparent text-base outline-none placeholder:text-stone-500"
+          />
+        </div>
       </div>
     </header>
   )

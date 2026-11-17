@@ -9,9 +9,12 @@ import { categories, menuItems } from "@/data/menu"
 
 const MenuPage = () => {
   const [filters, setFilters] = useState<MenuFilterState>(DEFAULT_FILTERS)
+  const [searchField, setSearchField] = useState("")
+  const search = searchField.trim()
 
   const hasAvailableItems = menuItems.some((item) => item.isAvailable)
-  const hasActiveFilters = Object.values(filters).some((filter) => filter)
+  const hasActiveFilters =
+    Object.values(filters).some((filter) => filter) || !!search
 
   const toggleFilter = (key: keyof MenuFilterState) => {
     setFilters((prev) => ({ ...prev, [key]: !prev[key] }))
@@ -19,15 +22,16 @@ const MenuPage = () => {
 
   const resetFilters = () => {
     setFilters(DEFAULT_FILTERS)
+    setSearchField("")
   }
 
-  const filteredMenuItems = filterMenuItems(menuItems, filters)
+  const filteredMenuItems = filterMenuItems(menuItems, filters, search)
 
   const groups = groupItemsByCategory(categories, filteredMenuItems)
 
   return (
     <>
-      <MenuHeader />
+      <MenuHeader searchField={search} onSearchChange={setSearchField} />
 
       <MenuFilters
         hasActiveFilters={hasActiveFilters}
