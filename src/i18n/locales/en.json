@@ -1,10 +1,10 @@
 {
   "common": {
+    "pageTitle": "Bistro Lipa · Menu",
     "restaurantName": "Bistro Lipa",
     "vegetarian": "Vegetarian",
     "backToMenu": "Back to the menu",
-    "switchLanguage": "Превключи на български",
-    "pageTitle": "Bistro Lipa · Menu"
+    "switchLanguage": "Превключи на български"
   },
   "menu": {
     "eyebrow": "Menu",

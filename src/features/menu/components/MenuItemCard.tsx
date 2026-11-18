@@ -8,7 +8,7 @@ interface MenuItemCardProps {
 }
 
 const MenuItemCard = ({ menuItem }: MenuItemCardProps) => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
 
   return (
     <article className="relative flex gap-4 rounded-2xl bg-white p-3 shadow-sm lg:p-4">
@@ -47,7 +47,7 @@ const MenuItemCard = ({ menuItem }: MenuItemCardProps) => {
             )}
           </div>
           <p className="text-base font-bold whitespace-nowrap text-emerald-800 lg:text-lg">
-            {formatPrice(menuItem.priceCents)}
+            {formatPrice(menuItem.priceCents, i18n.language)}
           </p>
         </div>
       </div>

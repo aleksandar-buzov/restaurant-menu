@@ -5,7 +5,7 @@ import formatPrice from "@/utils/formatPrice"
 import NotFoundPage from "@/pages/NotFoundPage"
 
 const MenuItemPage = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const id = Number(useParams().id)
   const menuItem = menuItems.find((item) => item.id === id)
 
@@ -47,7 +47,7 @@ const MenuItemPage = () => {
             {menuItem.name}
           </h1>
           <p className="text-xl font-bold whitespace-nowrap">
-            {formatPrice(menuItem.priceCents)}
+            {formatPrice(menuItem.priceCents, i18n.language)}
           </p>
         </div>
 

@@ -6,6 +6,7 @@ import en from "@/i18n/locales/en.json"
 
 i18n.on("languageChanged", (lng) => {
   document.documentElement.lang = lng
+  document.title = i18n.t("common.pageTitle")
 })
 
 i18n

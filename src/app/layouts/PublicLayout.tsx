@@ -8,8 +8,10 @@ const PublicLayout = () => {
   return (
     <div className="flex min-h-screen flex-col">
       <ScrollToTop />
-      <Outlet />
-      <footer className="mt-auto border-t border-stone-200 py-6 text-center text-sm text-stone-500">
+      <div className="flex-1">
+        <Outlet />
+      </div>
+      <footer className="border-t border-stone-200 py-6 text-center text-sm text-stone-500">
         © {t("common.restaurantName")}
       </footer>
     </div>
