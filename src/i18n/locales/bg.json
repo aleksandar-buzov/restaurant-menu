@@ -2,7 +2,9 @@
   "common": {
     "restaurantName": "Бистро Липа",
     "vegetarian": "Вегетарианско",
-    "backToMenu": "Към менюто"
+    "backToMenu": "Към менюто",
+    "switchLanguage": "Switch to English",
+    "pageTitle": "Бистро Липа · Меню"
   },
   "menu": {
     "eyebrow": "Меню",
