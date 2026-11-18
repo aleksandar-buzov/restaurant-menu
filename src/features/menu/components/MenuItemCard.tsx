@@ -1,5 +1,6 @@
 import type { MenuItem } from "@/types/menu"
 import formatPrice from "@/utils/formatPrice"
+import { Link } from "react-router"
 
 interface MenuItemCardProps {
   menuItem: MenuItem
@@ -7,7 +8,7 @@ interface MenuItemCardProps {
 
 const MenuItemCard = ({ menuItem }: MenuItemCardProps) => {
   return (
-    <article className="flex gap-4 rounded-2xl bg-white p-3 shadow-sm lg:p-4">
+    <article className="relative flex gap-4 rounded-2xl bg-white p-3 shadow-sm lg:p-4">
       {menuItem.imageUrl ? (
         <img
           src={menuItem.imageUrl}
@@ -23,7 +24,12 @@ const MenuItemCard = ({ menuItem }: MenuItemCardProps) => {
 
       <div className="flex min-w-0 flex-1 flex-col gap-1">
         <h3 className="text-base leading-snug font-semibold lg:text-lg">
-          {menuItem.name}
+          <Link
+            to={`/menu/${menuItem.id}`}
+            className="after:absolute after:inset-0"
+          >
+            {menuItem.name}
+          </Link>
         </h3>
         <p className="line-clamp-2 text-sm leading-relaxed text-stone-600">
           {menuItem.description}

@@ -1,5 +1,6 @@
 import { Route, Routes, Navigate } from "react-router"
 import MenuPage from "@/pages/MenuPage"
+import MenuItemPage from "@/pages/MenuItemPage"
 import AdminLayout from "@/app/layouts/AdminLayout"
 import PublicLayout from "./layouts/PublicLayout"
 import AdminItemsPage from "@/pages/admin/AdminItemsPage"
@@ -11,6 +12,7 @@ function App() {
     <Routes>
       <Route element={<PublicLayout />}>
         <Route path="/menu" element={<MenuPage />} />
+        <Route path="/menu/:id" element={<MenuItemPage />} />
         <Route path="/" element={<Navigate to="/menu" replace />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
