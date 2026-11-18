@@ -4,13 +4,15 @@ import CategorySection from "@/features/menu/components/CategorySection"
 import MenuFilters from "@/features/menu/components/MenuFilters"
 import groupItemsByCategory from "@/features/menu/utils/groupItemsByCategory"
 import filterMenuItems from "@/features/menu/utils/filterMenuItems"
+import useDebounce from "@/hooks/useDebounce"
 import { DEFAULT_FILTERS, type MenuFilterState } from "@/features/menu/types"
 import { categories, menuItems } from "@/data/menu"
 
 const MenuPage = () => {
   const [filters, setFilters] = useState<MenuFilterState>(DEFAULT_FILTERS)
   const [searchField, setSearchField] = useState("")
-  const search = searchField.trim()
+  const debouncedSearch = useDebounce(searchField)
+  const search = debouncedSearch.trim()
 
   const hasAvailableItems = menuItems.some((item) => item.isAvailable)
   const hasActiveFilters =
@@ -31,7 +33,7 @@ const MenuPage = () => {
 
   return (
     <>
-      <MenuHeader searchField={search} onSearchChange={setSearchField} />
+      <MenuHeader searchField={searchField} onSearchChange={setSearchField} />
 
       <MenuFilters
         hasActiveFilters={hasActiveFilters}
