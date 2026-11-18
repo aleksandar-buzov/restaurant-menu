@@ -2,6 +2,7 @@ import { useState } from "react"
 import MenuHeader from "@/features/menu/components/MenuHeader"
 import CategorySection from "@/features/menu/components/CategorySection"
 import MenuFilters from "@/features/menu/components/MenuFilters"
+import CategoryTabs from "@/features/menu/components/CategoryTabs"
 import groupItemsByCategory from "@/features/menu/utils/groupItemsByCategory"
 import filterMenuItems from "@/features/menu/utils/filterMenuItems"
 import useDebounce from "@/hooks/useDebounce"
@@ -30,10 +31,13 @@ const MenuPage = () => {
   const filteredMenuItems = filterMenuItems(menuItems, filters, search)
 
   const groups = groupItemsByCategory(categories, filteredMenuItems)
+  const filteredCategories = [...groups].map((item) => item.category)
 
   return (
     <>
       <MenuHeader searchField={searchField} onSearchChange={setSearchField} />
+
+      <CategoryTabs categories={filteredCategories} />
 
       <MenuFilters
         hasActiveFilters={hasActiveFilters}

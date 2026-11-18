@@ -9,7 +9,10 @@ interface CategorySectionProps {
 const CategorySection = ({ category, menuItems }: CategorySectionProps) => {
   const menuItemsCount = menuItems.length
   return (
-    <section className="flex flex-col gap-4">
+    <section
+      className="flex scroll-mt-4 flex-col gap-4"
+      id={`category-${category.id}`}
+    >
       <div className="flex items-baseline justify-between border-b border-stone-300 pb-2">
         <h2 className="font-serif text-2xl font-semibold lg:text-3xl">
           {category.name}
