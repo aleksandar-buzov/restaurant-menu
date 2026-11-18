@@ -1,5 +1,6 @@
+import { useTranslation } from "react-i18next"
 import type { Category, MenuItem } from "@/types/menu"
-import MenuItemCard from "./MenuItemCard"
+import MenuItemCard from "@/features/menu/components/MenuItemCard"
 
 interface CategorySectionProps {
   category: Category
@@ -7,7 +8,8 @@ interface CategorySectionProps {
 }
 
 const CategorySection = ({ category, menuItems }: CategorySectionProps) => {
-  const menuItemsCount = menuItems.length
+  const { t } = useTranslation()
+
   return (
     <section
       className="flex scroll-mt-4 flex-col gap-4"
@@ -18,9 +20,7 @@ const CategorySection = ({ category, menuItems }: CategorySectionProps) => {
           {category.name}
         </h2>
         <p className="text-sm text-stone-600">
-          {menuItemsCount === 1
-            ? `${menuItemsCount} ястие`
-            : `${menuItemsCount} ястия`}
+          {t("menu.itemCount", { count: menuItems.length })}
         </p>
       </div>
       <div className="grid gap-3 lg:grid-cols-2">

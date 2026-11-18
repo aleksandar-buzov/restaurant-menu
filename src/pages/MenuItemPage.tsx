@@ -1,9 +1,11 @@
 import { Link, useParams } from "react-router"
+import { useTranslation } from "react-i18next"
 import { categories, menuItems, allergens } from "@/data/menu"
 import formatPrice from "@/utils/formatPrice"
 import NotFoundPage from "@/pages/NotFoundPage"
 
 const MenuItemPage = () => {
+  const { t } = useTranslation()
   const id = Number(useParams().id)
   const menuItem = menuItems.find((item) => item.id === id)
 
@@ -20,7 +22,7 @@ const MenuItemPage = () => {
         <Link
           to="/menu"
           className="absolute top-4 left-4 flex size-11 items-center justify-center rounded-full bg-white shadow-sm"
-          aria-label="Назад към менюто"
+          aria-label={t("menuItem.backLabel")}
         >
           <span aria-hidden="true">←</span>
         </Link>
@@ -54,16 +56,16 @@ const MenuItemPage = () => {
         {menuItem.isVegetarian && (
           <div className="flex flex-wrap items-center gap-1.5">
             <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-800">
-              Вегетарианско
+              {t("common.vegetarian")}
             </span>
           </div>
         )}
 
         {allergensList.length === 0 ? (
-          <p className="text-sm text-stone-500">Няма алергени</p>
+          <p className="text-sm text-stone-500">{t("menuItem.noAllergens")}</p>
         ) : (
           <section className="flex flex-col gap-2.5 rounded-xl border border-stone-200 bg-stone-50 p-4">
-            <h2 className="text-sm font-semibold">Алергени</h2>
+            <h2 className="text-sm font-semibold">{t("menuItem.allergens")}</h2>
             <div className="flex flex-wrap items-center gap-1.5">
               {allergensList.map((allergen) => (
                 <span
@@ -76,7 +78,7 @@ const MenuItemPage = () => {
             </div>
 
             <p className="text-xs text-stone-500">
-              При алергия попитайте персонала за подробности
+              {t("menuItem.allergyNote")}
             </p>
           </section>
         )}

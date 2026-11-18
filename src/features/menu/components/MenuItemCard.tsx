@@ -1,12 +1,15 @@
 import type { MenuItem } from "@/types/menu"
 import formatPrice from "@/utils/formatPrice"
 import { Link } from "react-router"
+import { useTranslation } from "react-i18next"
 
 interface MenuItemCardProps {
   menuItem: MenuItem
 }
 
 const MenuItemCard = ({ menuItem }: MenuItemCardProps) => {
+  const { t } = useTranslation()
+
   return (
     <article className="relative flex gap-4 rounded-2xl bg-white p-3 shadow-sm lg:p-4">
       {menuItem.imageUrl ? (
@@ -39,7 +42,7 @@ const MenuItemCard = ({ menuItem }: MenuItemCardProps) => {
           <div className="flex flex-wrap items-center gap-1.5">
             {menuItem.isVegetarian && (
               <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-800">
-                Вегетарианско
+                {t("common.vegetarian")}
               </span>
             )}
           </div>

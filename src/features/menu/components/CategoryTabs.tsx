@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next"
 import type { Category } from "@/types/menu"
 
 interface CategoryTabsProps {
@@ -5,9 +6,11 @@ interface CategoryTabsProps {
 }
 
 const CategoryTabs = ({ categories }: CategoryTabsProps) => {
+  const { t } = useTranslation()
+
   return (
     <div className="mx-auto max-w-6xl px-5 pt-5 lg:px-6 lg:pt-8">
-      <nav aria-label="Категории">
+      <nav aria-label={t("menu.categoriesNav")}>
         <ul className="flex gap-2 overflow-x-auto pb-2">
           {categories.map((category) => {
             return (

@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useTranslation } from "react-i18next"
 import MenuHeader from "@/features/menu/components/MenuHeader"
 import CategorySection from "@/features/menu/components/CategorySection"
 import MenuFilters from "@/features/menu/components/MenuFilters"
@@ -10,6 +11,7 @@ import { DEFAULT_FILTERS, type MenuFilterState } from "@/features/menu/types"
 import { categories, menuItems } from "@/data/menu"
 
 const MenuPage = () => {
+  const { t } = useTranslation()
   const [filters, setFilters] = useState<MenuFilterState>(DEFAULT_FILTERS)
   const [searchField, setSearchField] = useState("")
   const debouncedSearch = useDebounce(searchField)
@@ -49,7 +51,9 @@ const MenuPage = () => {
       <main className="mx-auto max-w-6xl space-y-8 px-5 py-6 lg:px-6 lg:py-8">
         {groups.length === 0 ? (
           <p className="rounded-2xl border border-dashed border-stone-300 bg-white p-8 text-center text-stone-600">
-            Няма налични ястия {hasAvailableItems ? "по тези филтри" : ""}
+            {hasAvailableItems
+              ? t("menu.empty.noMatches")
+              : t("menu.empty.noItems")}
           </p>
         ) : (
           groups.map(({ category, items }) => (

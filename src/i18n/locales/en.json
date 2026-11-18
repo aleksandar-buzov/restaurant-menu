@@ -1,0 +1,42 @@
+{
+  "common": {
+    "restaurantName": "Bistro Lipa",
+    "vegetarian": "Vegetarian",
+    "backToMenu": "Back to the menu"
+  },
+  "menu": {
+    "eyebrow": "Menu",
+    "subtitle": "Seasonal cuisine · prices in euro",
+    "searchLabel": "Search dishes",
+    "searchPlaceholder": "Search dishes…",
+    "categoriesNav": "Categories",
+    "itemCount_one": "{{count}} dish",
+    "itemCount_other": "{{count}} dishes",
+    "filters": {
+      "label": "Filters",
+      "vegetarian": "Vegetarian",
+      "glutenFree": "Gluten-free",
+      "reset": "Clear filters"
+    },
+    "empty": {
+      "noItems": "No dishes are available right now",
+      "noMatches": "No dishes match these filters"
+    }
+  },
+  "menuItem": {
+    "backLabel": "Back to the menu",
+    "allergens": "Allergens",
+    "noAllergens": "No allergens",
+    "allergyNote": "If you have an allergy, please ask our staff for details"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The address is wrong or the page no longer exists."
+  },
+  "admin": {
+    "navLabel": "Admin panel",
+    "items": "Dishes",
+    "categories": "Categories",
+    "publicMenu": "Public menu"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "common": {
+    "restaurantName": "Бистро Липа",
+    "vegetarian": "Вегетарианско",
+    "backToMenu": "Към менюто"
+  },
+  "menu": {
+    "eyebrow": "Меню",
+    "subtitle": "Сезонна кухня · цени в евро",
+    "searchLabel": "Търси ястие",
+    "searchPlaceholder": "Търси ястие…",
+    "categoriesNav": "Категории",
+    "itemCount_one": "{{count}} ястие",
+    "itemCount_other": "{{count}} ястия",
+    "filters": {
+      "label": "Филтри",
+      "vegetarian": "Вегетарианско",
+      "glutenFree": "Без глутен",
+      "reset": "Изчисти филтрите"
+    },
+    "empty": {
+      "noItems": "В момента няма налични ястия",
+      "noMatches": "Няма ястия по тези филтри"
+    }
+  },
+  "menuItem": {
+    "backLabel": "Назад към менюто",
+    "allergens": "Алергени",
+    "noAllergens": "Няма алергени",
+    "allergyNote": "При алергия попитайте персонала за подробности"
+  },
+  "notFound": {
+    "title": "Страницата не е намерена",
+    "description": "Адресът е грешен или страницата вече не съществува."
+  },
+  "admin": {
+    "navLabel": "Админ панел",
+    "items": "Ястия",
+    "categories": "Категории",
+    "publicMenu": "Публично меню"
+  }
+}

@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next"
 import Toggle from "@/components/ui/Toggle"
 import type { MenuFilterState } from "@/features/menu/types"
 
@@ -8,9 +9,9 @@ interface MenuFiltersProps {
   onResetFilters: () => void
 }
 
-const FILTER_OPTIONS: { key: keyof MenuFilterState; label: string }[] = [
-  { key: "vegetarian", label: "Вегетарианско" },
-  { key: "glutenFree", label: "Без глутен" },
+const FILTER_OPTIONS: { key: keyof MenuFilterState; labelKey: string }[] = [
+  { key: "vegetarian", labelKey: "menu.filters.vegetarian" },
+  { key: "glutenFree", labelKey: "menu.filters.glutenFree" },
 ]
 
 const MenuFilters = ({
@@ -19,22 +20,26 @@ const MenuFilters = ({
   onToggle,
   onResetFilters,
 }: MenuFiltersProps) => {
+  const { t } = useTranslation()
+
   return (
     <div className="mx-auto max-w-6xl px-5 pt-5 lg:px-6 lg:pt-8">
       <div
         role="group"
-        aria-label="Филтри"
+        aria-label={t("menu.filters.label")}
         className="flex flex-wrap items-center gap-2"
       >
-        <span className="text-sm text-stone-600">Филтри:</span>
+        <span className="text-sm text-stone-600">
+          {t("menu.filters.label")}:
+        </span>
 
-        {FILTER_OPTIONS.map(({ key, label }) => (
+        {FILTER_OPTIONS.map(({ key, labelKey }) => (
           <Toggle
             key={key}
             pressed={filters[key]}
             onClick={() => onToggle(key)}
           >
-            {label}
+            {t(labelKey)}
           </Toggle>
         ))}
 
@@ -44,7 +49,7 @@ const MenuFilters = ({
             className="cursor-pointer text-sm font-medium text-emerald-800 underline-offset-4 hover:underline"
             onClick={onResetFilters}
           >
-            Изчисти филтрите
+            {t("menu.filters.reset")}
           </button>
         )}
       </div>
